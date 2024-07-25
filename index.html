@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royaloak</title>
+    <link rel="shortcut icon" href="assets/png/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .home--swiper {
+            margin: initial;
+        }
+
+
+        .home--button {
+            padding: 1rem 1.5rem;
+        }
+
+        .home--container {
+            padding-top: 2rem;
+            row-gap: 2.5rem;
+            padding-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home--data {
+            text-align: center;
+            width: 47%;
+        }
+
+        .home--title {
+            font-size: var(--biggest-font-size);
+            margin-bottom: 1rem;
+        }
+
+        .home--description {
+            margin-bottom: 2rem;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Recommended--card {
+            height: 550px;
+        }
+
+        .vintage--card {
+            height: 250px;
+        }
+
+        .review--card {
+            height: 350px;
+        }
+
+        .review--swiper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            object-fit: cover;
+        }
+
+        .swiper-wrapper {
+            padding-bottom: 2rem;
+        }
+
+        .swiper-slider {
+            display: block;
+        }
+
+        .home--article,
+        .swiper-slide img {
+            transition: scale .4s;
+        }
+
+        .home--article {
+            scale: .8;
+        }
+
+        .home--images {
+            display: grid;
+        }
+
+
+        .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+            scale: 1;
+        }
+        @media screen and (max-width:400px) {
+            .home--container{
+
+    flex-direction: column;
+    row-gap: .5rem;
+  }
+            .swiper{
+                display: grid;
+            }
+        }
+        @media screen and (max-width:640px) {
+  .home--container{
+    flex-direction: column;
+    row-gap: .5rem;
+  }
+  .home--data{
+    display: contents;
+   }
+   .services--container{
+  display: inline;
+ }
+}
+@media screen and (min-width:1000px) {
+    .home--swiper {
+            width: 70%;
+        margin: auto;
+        }
+        .home--data {
+            width: 52%;
+        }
+    
+}
+@media screen and (max-width:400px) {
+  .container{
+    margin-inline: 1rem;
+  }
+
+  .nav--menu{
+padding-inline: 3rem; 
+ }
+ .home--data{
+  display: contents;
+ }
+ .services--container{
+  display: inline;
+ }
+ .discount--container{
+  margin-inline: -7rem;
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ .subscribe--container{
+  padding-bottom: 13rem;
+  padding-top: 8rem;
+  margin-inline: -7rem;
+   }
+   .footer--description{
+    display: flex;
+    margin-right: 6rem;
+   }
+   .footer--data{
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+   }
+}
+
+/* For medium devices */
+@media screen and (max-width:600px) {
+.search--close,.login--close{
+  width: max-content;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+}
+.nav--menu{
+  width: 380px;
+  margin-inline: auto;
+}
+}
+@media screen and (max-width:800px) {
+  .footer--data{
+    grid-template-columns: repeat(3, max-content);
+  }
+}
+/* For large devices */
+@media screen and (max-width:1000px) {
+.search--close,.login--close{
+  width: max-content;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+}
+.nav{
+  height: calc(var(--header-height)+2rem);
+  column-gap: 4rem;
+}
+.nav--link i{
+    display: none;
+}
+.nav--link span{
+    display: block;
+}
+.nav--menu{
+    width: initial;
+    margin-inline: auto 0;
+}
+.nav--list{
+    column-gap: 4rem;
+}
+.nav--link{
+  font-weight: var(--font-medium);
+}
+.dark-theme .nav--menu{
+  box-shadow: none;
+}
+}
+@media screen and (max-width:1500px) {
+    .search--close,.login--close{
+  width: max-content;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+}
+}
+    </style>
+</head>
+
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <img src="assets/png/logo1.png" alt="">
+            </a>
+            <div class="nav--menu">
+                <ul class="nav--list">
+                    <li class="nav--item">
+                        <a href="#home" class="nav--link active-link">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav--item">
+                        <a href="#Recommended" class="nav--link">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Featured</span>
+                        </a>
+                    </li>
+                    <li class="nav--item">
+                        <a href="#discount" class="nav--link">
+                            <i class="fa-solid fa-tags"></i>
+                            <span>Discount</span>
+                        </a>
+                    </li>
+                    <li class="nav--item">
+                        <a href="#vintage" class="nav--link">
+                            <i class="fa-solid fa-wine-bottle fa-shake"></i>
+                            <span>New arrival</span>
+                        </a>
+                    </li>
+                    <li class="nav--item">
+                        <a href="#review" class="nav--link">
+                            <i class="fa-solid fa-comments-dollar"></i>
+                            <span>Testomonial</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav--actions">
+                <!-- search button -->
+                <i class="fa-brands fa-searchengin search-button" id="search-button"></i>
+                <!-- login button -->
+                <i class="fa-regular fa-user login-button" id="login-button"></i>
+                <!-- theme button -->
+                <i class=" fa-solid fa-moon theme-change" id="theme-button"></i>
+            </div>
+        </nav>
+
+    </header>
+    <!-- search -->
+    <div class="search" id="search-content">
+        <form action="" class="search--form">
+            <i class="fa-solid fa-magnifying-glass search--icon"></i>
+            <input type="search" placeholder="what are u looking for?" class="search--input">
+        </form>
+        <i class="fa-solid fa-xmark search--close" id="search--close"></i>
+    </div>
+    <!-- Login -->
+    <div class="login grid" id="login-content">
+        <form action="" class="login--form grid">
+            <h3 class="login--title">Login In</h3>
+            <div class="login--group grid">
+                <div>
+                    <label for="login--email" class="login--label">Email</label>
+                    <input type="email" placeholder="Write your email" id="login--email" class="login--input">
+                </div>
+                <div>
+                    <label for="login--pass" class="login--label">Password</label>
+                    <input type="password" placeholder="Enter your password" id="login--pass" class="login--input">
+                </div>
+            </div>
+            <div>
+                <span class="login--signup">You do not have an account?<a href="#">Sign up</a></span>
+                <a href="#" class="login--forgot">
+                    You forgot your password
+                </a>
+                <button type="submit" class="login--button button" id="login--button">Log In</button>
+            </div>
+        </form>
+        <i class="fa-solid fa-xmark login--close" id="login-close"></i>
+    </div>
+    <!-- ============= MAIN ============= -->
+    <main class="main">
+        <!-- ========= Home =========== -->
+        <section class="home section" id="home">
+            <div class="home--container container grid">
+                <div class="home--data">
+                    <h1 class="home--title">Start your <br> 2024 on top </h1>
+                    <p class="home--description">
+                        Find the best Wine from your favorite brand, explore hundreds of verities with all possible
+                        categories, take advantage of the 50% discount and much more.
+                    </p>
+                    <a href="#" class="button home--button">shop top-scoring wines</a>
+                </div>
+                <div class="home--images">
+
+                    <div class="swiper home--swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide home--article"><img src="assets/png/22.png" width="100px" alt="">
+                            </div>
+                            <div class="swiper-slide home--article"><img src="assets/png/29.png" width="100px" alt="">
+                            </div>
+                            <div class="swiper-slide home--article"><img src="assets/png/34.png" width="130px" alt="">
+                            </div>
+                            <div class="swiper-slide home--article"><img src="assets/png/36.png" width="100px" alt="">
+                            </div>
+                            <div class="swiper-slide home--article"><img src="assets/png/44.png" width="100px" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========= Services =========== -->
+        <section class="Services" id="Services">
+            <div class="services--container container grid">
+                <article class="services--card">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3 class="services--title">Free Shipping
+                    </h3>
+                    <p class="services--description">Order more than ₹10K </p>
+                </article>
+                <article class="services--card">
+                    <i class="fa-brands fa-get-pocket"></i>
+                    <h3 class="services--title">Secure Payment
+                    </h3>
+                    <p class="services--description">100% secure payment</p>
+                </article>
+                <article class="services--card">
+                    <i class="fa-solid fa-headset"></i>
+                    <h3 class="services--title">24/7 support
+                    </h3>
+                    <p class="services--description">Call us Anytime </p>
+                </article>
+                <article class="services--card">
+                    <i class="fa-solid fa-gifts"></i>
+                    <h3 class="services--title">Gifting
+                    </h3>
+                    <p class="services--description">Gifting on many occations </p>
+                </article>
+                <article class="services--card ">
+                    <div class="original">
+                        <img src="assets/png/original.png" alt="">
+                    </div>
+                    <h3 class="services--title">100% original
+                    </h3>
+                    <p class="services--description">Original Products</p>
+                </article>
+            </div>
+        </section>
+        <!-- ========= Recommended =========== -->
+        <section class="Recommended section" id="Recommended">
+            <h2 class="section--title">
+                Recommended For You
+            </h2>
+            <div class="Recommended--container container">
+                <div class="Recommended--swiper swiper">
+                    <div class="swiper-wrapper">
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/33.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Champagne</h2>
+                            <p class="Recommended--describe"> Didier lourdeaux (Brut)</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹1799</span>
+                                <span class="Recommended--price">₹2900</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/24.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Pittsburgh pirates</h2>
+                            <p class="Recommended--describe">Red club series</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹1199</span>
+                                <span class="Recommended--price">₹2200</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/44.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Stella Rosa</h2>
+                            <p class="Recommended--describe">IL CONTE 1917</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹2999</span>
+                                <span class="Recommended--price">₹3700</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/39.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Peachy Canyon</h2>
+                            <p class="Recommended--describe">2015| CALIFORNIA |Traditional Red Vine</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹1799</span>
+                                <span class="Recommended--price">₹2200</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/32.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Champagne</h2>
+                            <p class="Recommended--describe">Veuve Clicquot (Brut)</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹899</span>
+                                <span class="Recommended--price">₹1500</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/36.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Berarte</h2>
+                            <p class="Recommended--describe">2015| RIOJA</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹999</span>
+                                <span class="Recommended--price">₹1300</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/22.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Argento Reserva</h2>
+                            <p class="Recommended--describe">malbec vintage 2010</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹1899</span>
+                                <span class="Recommended--price">₹2700</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/27.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Cullen</h2>
+                            <p class="Recommended--describe">Mirgaret River</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹2299</span>
+                                <span class="Recommended--price">₹3200</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/42.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">Bush Creek</h2>
+                            <p class="Recommended--describe">Rose|2015|Austrelia</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹799</span>
+                                <span class="Recommended--price">₹1200</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                        <article class="Recommended--card swiper-slide swiper-slider">
+                            <img src="assets/png/48.png" alt="" class="Recommended--img">
+                            <h2 class="Recommended--title">True & Daring</h2>
+                            <p class="Recommended--describe">White wine vintage</p>
+                            <div class="Recommended--prices">
+                                <span class="Recommended--discount">₹2799</span>
+                                <span class="Recommended--price">₹3200</span>
+                            </div>
+                            <button class="button Recommended--button">Add To Cart</button>
+                            <div class="Recommended--actions">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-button-next "></div>
+                    <div class="swiper-button-prev "></div>
+                </div>
+            </div>
+        </section>
+        <!-- ========= Discount =========== -->
+        <section class="discount section " id="discount">
+            <div class="discount--container container grid">
+                <div class="discount--data">
+                    <h2 class="discount--title section--title">
+                        Up To 70% Discount
+                    </h2>
+                    <p class="discount--description">
+                        Take advantage of the discount days we have for you, buy wines from your favorite brands, the
+                        more you buy, the more dicount we have for you.
+                    </p>
+                    <a href="#" class="button discount--button">Shop Now</a>
+                </div>
+                <div class="discount--images">
+                    <img src="assets/png/sale.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- ========= Best Seller =========== -->
+        <section class="vintage section" id="vintage">
+            <h2 class="section--title">
+                Vintage Wines
+            </h2>
+            <div class="vintage--container container">
+                <div class="vintage--swiper swiper">
+                    <div class="swiper-wrapper">
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/344.png" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/43.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/32.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/38.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/43.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/47.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/26.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/25.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/22.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/23.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="swiper-button-next "></div>
+                        <div class="swiper-button-prev "></div>
+                    </div>
+                </div>
+                <div class="vintage--swiper swiper">
+                    <div class="swiper-wrapper">
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/47.png" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/22.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/23.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/25.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/26.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/29.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/27.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/37.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/40.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#vintage" class="vintage--card swiper-slide">
+                            <img src="assets/png/35.png" alt="" class="vintage--img">
+                            <div>
+                                <h2 class="new--title">Hennessy (1765)</h2>
+                                <div class="vintage--prices">
+                                    <span class="vintage--discount">₹8999</span>
+                                    <span class="vintage--price">₹3999</span>
+                                </div>
+                                <div class="vintage--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-button-next "></div>
+                    <div class="swiper-button-prev "></div>
+                </div>
+            </div>
+        </section>
+        <!-- ========= Subscribe =========== -->
+        <section class="subscribe section">
+            <div class="subscribe--container ">
+                <img src="assets/png/join.jpg" alt="" class="sub--bg">
+                <div class="sub--data container grid">
+                    <h2 class="sub--title section--title">Subscribe To Receive <br>The Latest Deals </h2>
+                    <form action="" class="sub--form">
+                        <input type="email" placeholder="wearehere@gmail.com" class="sub--input">
+                        <button type="submit" class="sub--button button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- ========= review =========== -->
+         
+         
+        <section class="review-section21">
+            <h2 class="section-title">Customer Opinion</h2>
+            <div class="review-container21">
+              <div class="review-card21">
+                <img src="/assets/png/cus7.jpg" alt="Image 1" class="circular-image21">
+                <h3>Jasmin </h3>
+                <p>so beautiful so elegant just feeling like a wow...</p>
+                 <div class="review--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+              </div>
+              <div class="review-card21">
+                <img src="/assets/png/cus-1.jpg" alt="Image 1" class="circular-image21">
+                <h3>Joseph phillips</h3>
+                <p>raha nahi jata tadap hi aisi hai...</p>
+                 <div class="review--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+              </div>
+              <div class="review-card21">
+                <img src="/assets/png/cus6.jpg" alt="Image 1" class="circular-image21">
+                <h3>Joseph phillips</h3>
+                <p>very happy with custmor service...</p>
+                 <div class="review--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+              </div>
+              <div class="review-card21">
+                <img src="/assets/png/cus-2.jpg" alt="Image 1" class="circular-image21">
+                <h3>Raju</h3>
+                <p>Kya maal hai yaar..</p>
+                 <div class="review--stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star-half-stroke"></i>
+                                </div>
+              </div>
+              </div>
+          </section>
+        <!-- ========= Footer =========== -->
+        <footer class="footer" id="footer">
+            <div class="footer--container container grid">
+                <div>
+                    <a href="#" class="footer--logo">
+                        <img src="assets/png/logo1.png" alt="" >
+                    </a>
+                    <p class="footer--description">
+                        Find and Explore the best wine from your favorite brand
+                    </p>
+                </div>
+                <div class="footer--data grid">
+                    <div>
+                        <h3 class="footer--title">About</h3>
+                        <ul class="footer--links">
+                            <li>
+                                <a href="#" class="footer--link"> Awards</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer--link"> FAQs</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer--link">Privacy policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer--link"> Terms of services</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="footer--title">Company</h3>
+                        <ul class="footer--links">
+                            <li>
+                                <a href="#" class="footer--link"> Blogs</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer--link">Community</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer--link">Our team</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer--link">Help center                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="footer--title">Contact</h3>
+                        <ul class="footer--links">
+                            <li>
+                              <address class="footer--info">near wagheswar temple, waghaland <br>
+                                pune-413515 </address>
+                            </li>
+                            <li>
+                              <address class="footer--info">mainnahibatunga@gmaill.com <br>
+                                +919333377777</address>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="footer--title">Social</h3>
+                    <div class="foote--social">
+                        <a href=" https://www.facebook.com/" target="_blank" class="footer--social-link">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href=" https://www.instagram.com/" target="_blank" class="footer--social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" class="footer--social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <span class="footer--copy">
+                All Rights Reserved @Royaloak
+            </span>
+        </footer>
+                    <!-- =======Sroll UP======== -->
+        <a href="#" class="scrollup" id="scroll-up"><i class="fa-regular fa-circle-up"></i></a>
+
+
+        
+        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+            var swiperHome = new Swiper(".mySwiper", {
+                loop: true,
+                spaceBetween: -24,
+                grabCursor: true,
+                slidesPerView: 2,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    300: {
+                        slidesPerView: 1
+                    },
+                    350: {
+                        slidesPerView: 2
+                    },
+                    500: {
+                        slidesPerView: 2
+                    },
+                    600:{
+                        slidesPerView:3
+                    },
+                    1220: {
+                        spaceBetween: -32,
+                    }
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+            var swiperRecommended = new Swiper(".Recommended--swiper", {
+                loop: true,
+                spaceBetween: 16,
+                grabCursor: true,
+                slidesPerView: 1,
+                // centeredSlides: 'auto',
+                breakpoints: {
+                    420: {
+                        slidesPerView: 2,
+                    },
+                    750: {
+                        slidesPerView: 3,
+                    },
+                    1150: {
+                        slidesPerView: 4,
+                        // centeredSlides: false,
+                    }
+                },
+
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+            var swiperVintage = new Swiper(" .vintage--swiper", {
+                loop: true,
+                spaceBetween: 16,
+                slidesPerView: '1',
+                grabCursor: 'true',
+                // centeredSlides: 'auto',
+                breakpoints: {
+                    420: {
+                        slidesPerView: 2,
+                    },
+                    750: {
+                        slidesPerView: 3,
+                    },
+                    1150: {
+                        slidesPerView: 4,
+                        // centeredSlides: false,
+                    }
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+            var swiperreview = new Swiper(".review--swiper", {
+                loop: true,
+                spaceBetween: 16,
+                slidesPerView: '1',
+                grabCursor: 'true',
+                // centeredSlides: 'auto',
+                breakpoints: {
+                    420: {
+                        slidesPerView: 2,
+                    },
+                    750: {
+                        slidesPerView: 3,
+                    },
+                    1150: {
+                        slidesPerView: 4,
+                        centeredSlides: false,
+                    }
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
+
+</body>
+
+</html>
